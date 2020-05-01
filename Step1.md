@@ -2,37 +2,36 @@
 
 ### Acceptance criteria
 
-* You have a GitHub repo with everything needed to build the Docker image.
-* You can do a demo, where you build the image, run a container and access content from a browser.
+1. You have a GitHub repo with everything needed to build the Docker image.
+2. You can do a demo, where you build the image, run a container and access content from a browser.
+3. Building the image in the directory containing the Dockerfile :
+    * docker build -t <nom_image> .
+4. Running the container with the port mapping.  
+    * docker run -p <localport:portContainer> <nom_image> 
 
+5. Access content from a web browser
+    * Writing in the URL <localhost:localport> to be able to access the content.
 
-1. Building the image in the directory containing the Dockerfile :
-docker build -t <nom_image> .
+6. You have used a nice looking web template, different from the one shown in the webcast.
+7. You are able to explain what you do in the Dockerfile.
 
-2. Running the contrainer with the port mapping.  
-docker run -p <localport:portContainer> <nom_image> 
+    * We use a already created image called php:7.2-apache
 
-3. Writing in the URL localhost:<localport> to be able to acces the content.
+    ![](./img/Dockerfile1.png)
 
-* You have used a nice looking web template, different from the one shown in the webcast.
-* You are able to explain what you do in the Dockerfile.
+    * Every time we run a container, all the content and all the files in the content/ directory will be copied in the var/www/html/ directory of the container.
+ This container directory is the default root directory configured in etc/apache2/sites-enabled directory.
 
-We use a already created image callse php:7.2-apache
+    ![](./img/Dockerfile2.png)
 
-[](./img/Dockerfile1.png)
+8. You are able to show where the apache config files are located (in a running container).
 
-Everytime we build this Dockerfile, all the content and all the files in the content/ directory will be copied in the var/www/html/ directory in the virtual host. This vm directory is the default root directory configured in etc/apache2/sites-enabled directory.
+    * We exec an interactive image with a bash client to travel in the filesystem. In the etc/apache2/ we can find these files.
 
-[](./img/Dockerfile2.png)
+    ![](./img/configuration.png)
 
-* You are able to show where the apache config files are located (in a running container).
+    * There are all the differents virtual hosts. We are interested in the default one in **sites_available**. We can then open the .conf file inside to know more about the virtual host.
 
-We exec an interactiv image with a bash client to traval in the filesystem. In the etc/apache2/ we can find these files.
+    ![](./img/configuration2.png)
 
-[](./img/configuration.png)
-
-There are all the different virtual host. We are interested in the default one in **sites_available**. We can then open the .conf file inside to know more about the virtual host.
-
-[](./img/configuration2.png)
-
-* You have **documented** your configuration in your report.
+9. You have **documented** your configuration in your report.
