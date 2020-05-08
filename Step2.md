@@ -18,3 +18,26 @@
      * To build the container's image we go in the directory containing the Dockerfile and run this command : 
      **docker build -t res/express_students.png .** . Then we run the container with **docker run res/express_students.png**
      ![](./img/2dockerRun.png) We can see that our index.js file is correctly executed.
+3. You generate dynamic, random content and return a JSON payload to the client.
+    * installing express into the directory :
+        * npm install --save express
+       
+   * added some code in index.js 
+        * a port listener fonction **listen();**
+        * a callback function **get();**
+        * express with **var express = require('express');**
+        
+    ![](./img/index.png)
+        
+    * To give access outside of Docker we run it with the option -p (port mapping)
+        * docker run -p 9090:3000 express_students
+    
+4. You cannot return the same content as the webcast (you cannot return a list of people).
+
+    ![](./img/HelloRES.png)
+
+    Nous avons également testé avec avec la nouvelle fonctionnalité postman
+    
+    ![](./img/postman.png)
+
+5. You have **documented** your configuration in your report.
