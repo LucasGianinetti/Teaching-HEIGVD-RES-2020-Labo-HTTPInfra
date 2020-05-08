@@ -29,6 +29,7 @@
     * We connected with telnet to localhost 8080 and sent a request :
         
         ![](./img/3telnetWithoutHost.png)
+        
         It is not working because we forgot to add the host to the request (we added Servername in the proxy config file)
         
     * We tried both possibilities (with /api/students/ and with nothing) and these are the results :
@@ -69,7 +70,10 @@
 3. You can explain and prove that the static and dynamic servers cannot be reached directly (reverse proxy is a single entry point in the infra).<br>
 
     On linux, the "docker host" runs directly on the computer OS, so the servers can be reached directly. To prove that the proxy is working we would need to try to reach the servers on another machine in the same network. On windows/mac the "docker host" runs in a vm, so we can try to reach the servers from outside of the docker-machine environment.
-
+    
+    This is the result on windows:
+    ![](./img/windowsTestTelnet.png)
+    
 4. You are able to explain why the static configuration is fragile and needs to be improved.
 
     Our static configuration needs to be improved because the ipaddress of the containers are "hard coded". Which means that the config file needs to be updated with the right apadress avery time we run the apache-static & the express-dynamic containers
