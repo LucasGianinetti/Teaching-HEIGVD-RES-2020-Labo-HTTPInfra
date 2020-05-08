@@ -16,5 +16,5 @@
      our **index.js** file that will be run by node every time we run this container.
      ![](./img/2indexJs.PNG)
      * To build the container's image we go in the directory containing the Dockerfile and run this command : 
-     **docker build -t res/express_students.png** . Then we run the container with **docker run res/express_students.png**
+     **docker build -t res/express_students.png .** . Then we run the container with **docker run res/express_students.png**
      ![](./img/2dockerRun.png) We can see that our index.js file is correctly executed.
