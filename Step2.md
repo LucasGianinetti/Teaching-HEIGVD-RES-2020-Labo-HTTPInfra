@@ -27,7 +27,7 @@
         * a callback function **get();**
         * express with **var express = require('express');**
         
-    ![](./img/index.png)
+    ![](./img/2IndexJs2.png)
         
     * To give access outside of Docker we run it with the option -p (port mapping)
         * docker run -p 9090:3000 express_students
