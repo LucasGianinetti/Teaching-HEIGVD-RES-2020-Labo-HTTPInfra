@@ -11,10 +11,10 @@
      * In our src directory we used npm to create a package.json file with the command npm init. 
      * Then we used **npm install --save chance** to install the package chance and any of its dependencies and to save it/them.
       The command also updates our package.json file, so now we have an dependencies entry with chance in it.
-     ![](./img/2packageJson.png)
+     ![](./img/2packageJson.PNG)
      * Chance gives us a lot of functionality to generate random datas. So now that we have it installed we can create
      our **index.js** file that will be run by node every time we run this container.
-     ![](./img/2indexJs.png)
+     ![](./img/2indexJs.PNG)
      * To build the container's image we go in the directory containing the Dockerfile and run this command : 
      **docker build -t res/express_students.png** . Then we run the container with **docker run res/express_students.png**
      ![](./img/2dockerRun.png) We can see that our index.js file is correctly executed.
