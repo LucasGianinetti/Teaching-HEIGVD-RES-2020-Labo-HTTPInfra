@@ -5,7 +5,7 @@
 3. You may use the approach presented in the webcast (environment variables and PHP script executed when the reverse proxy container is started),
  or you may use another approach. The requirement is that you should not have to rebuild the reverse proxy Docker image when
   the IP addresses of the servers change.
-5. You are able to explain how you have implemented the solution and walk us through the configuration and the code.
+4. You are able to explain how you have implemented the solution and walk us through the configuration and the code.
          
      We have modified our startup script so we can invoke the php interpretor and inject environment variables in a php template
      in order to dynamically configure the reverse-proxy. With this configuration we can start the container and give it ipaddresses instead of
@@ -24,9 +24,9 @@
      We first display the environment variables that should be passed to the container, then we execute the php script and store its results
      in the reverse-proxy config file.
      
-     Then in our *Dockerfile* we have to copy our *apache2-foreground* in the container as they did.
+     Then in our *Dockerfile* we have to copy our *apache2-foreground* in the container as they did. On windows we had an error because of the end of line ^M in the script. To avoid this error we install the command *dos2unix* which remove this end of line and then we run it.
      
-     ![](./img/dockerfile5.png)
+     ![](./img/dockerfile11.png)
      
      Now we will use php to create a template for the reverse-proxy config file. We have to adapt the Dockerfile to copy
      the template into the container so the script can use the template (image above).
@@ -44,7 +44,7 @@
      
      ![](./img/dockerRun5.png)
      
-4. You are able to do an end-to-end demo with a well-prepared scenario. Make sure that you can demonstrate that everything works fine when the IP addresses change!
+5. You are able to do an end-to-end demo with a well-prepared scenario. Make sure that you can demonstrate that everything works fine when the IP addresses change!
 
     1. First of all, you have to build all the images.
         * docker build -t <image_name> .

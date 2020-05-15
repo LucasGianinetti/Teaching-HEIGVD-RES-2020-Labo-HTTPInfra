@@ -1,4 +1,4 @@
-  ##Step4
+ ##Step4
   
  1. You have a GitHub repo with everything needed to build the Docker image for the container.
  2. You can do a complete, end-to-end demonstration: the web page is dynamically updated every few seconds (with the data coming from the dynamic backend). 
