@@ -54,10 +54,12 @@
         * enable the mods proxy & proxy_http and then enable 000-default.conf & 001-reverse-proxy.conf
         
         One last step is needed to access the site through the browser, we have to modify our DNS config to add an entry for the new host.
-        In linux it is the config file /etc/hosts. 
+        In linux it is the config file */etc/hosts*. 
         
         ![](./img/host.png)
-         
+        
+        In windows it is in the config file *C:\Windows\ System32\drivers\etc\hosts*
+        
         If we try to access the site without specifying the configured host: 
         ![](./img/withoutHost.png)
         
