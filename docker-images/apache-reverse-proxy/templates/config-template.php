@@ -1,6 +1,8 @@
 <?php
-$static_app = getenv('STATIC_APP');
-$dynamic_app = getenv('DYNAMIC_APP');
+$static_app_1 = getenv('STATIC_APP_1');
+$static_app_2 = getenv('STATIC_APP_2');
+$dynamic_app_1 = getenv('DYNAMIC_APP_1');
+$dynamic_app_2 = getenv('DYNAMIC_APP_2');
 ?>
 
 <VirtualHost *:80>
@@ -9,11 +11,24 @@ $dynamic_app = getenv('DYNAMIC_APP');
         #ErrorLog ${APACHE_LOG_DIR}/error.log
         #CustomLog ${APACHE_LOG_DIR}/access.log combined
 
-	ProxyPass '/api/apartments/' 'http://<?php print "$dynamic_app"?>/'
-	ProxyPassReverse '/api/apartments/' 'http://<?php print "$dynamic_app"?>/'
+	<Proxy "balancer://dynamic_app">
+		BalancerMember 'http://<?php print "$dynamic_app_1"?>'
+		BalancerMember 'http://<?php print "$dynamic_app_2"?>'
+	</Proxy>
 
-        ProxyPass '/' 'http://<?php print "$static_app"?>/'
-        ProxyPassReverse '/' 'http://<?php print "$static_app"?>/'
+
+	ProxyPass '/api/apartments/' 'balancer://dynamic_app/'
+	ProxyPassReverse '/api/apartments/' 'balancer://dynamic_app/'
+
+
+	<Proxy "balancer://static_app">
+		BalancerMember 'http://<?php print "$static_app_1"?>'
+		BalancerMember 'http://<?php print "$static_app_2"?>'
+	</Proxy>
+
+        ProxyPass '/' 'balancer://static_app/'
+	ProxyPassReverse '/' 'balancer://static_app/'
+
 </VirtualHost>
 
 
