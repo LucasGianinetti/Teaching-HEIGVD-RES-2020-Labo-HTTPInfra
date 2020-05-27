@@ -67,12 +67,12 @@ So now everytime a static node will be accessed a cookie of name ROUTID with the
 node route will be assigned to the accessor.
 
 To prove that our load-balancer is providing http requests in a round-robin fashion to the dynamic nodes we can
-observe the colum *Elected* of our dynamic workers in teh balancer-manager interface (demo.res.ch:8080/balancer-manager).
+observe the colum *Elected* of our dynamic workers in the balancer-manager interface (demo.res.ch:8080/balancer-manager).
 And we can see that the dynamic node responding changes every request that are sent.
 
 ![](./img/rr.gif)
 
-To prove that our load-balancer can handle sticky sessions when forwarding HTTp requests to the static nodes, we access
+To prove that our load-balancer can handle sticky sessions when forwarding HTTP requests to the static nodes, we access
 demo.res.ch:8080 and reload the page several times. We will see that it is always the same static node that will respond due 
 to the cookie. If we delete the cookie and then reload the page, the responding static node could change.
 

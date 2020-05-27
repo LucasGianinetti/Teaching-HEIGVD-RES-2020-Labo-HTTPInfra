@@ -2,7 +2,7 @@
 
 1. You extend the reverse proxy configuration to support load balancing.
 
-    Apache has an extension an extension for load balancing : **mod_proxy_balancer**
+    Apache has an extension for load balancing : **mod_proxy_balancer**
     
     It provides load balancing for *HTTP* and others protocols.
     
@@ -23,7 +23,7 @@
     
 2. You show that you can have multiple static server nodes and multiple dynamic server nodes.
 
-    We could add other nodes to each balancer by adding  BalancerMembers and provide its IPAddress:Port with envirnoment
+    We could add other nodes to each balancer by adding BalancerMembers and provide its IPAddress:Port with envirnoment
     variables.
     
     Then when we run the reverse-proxy container we pass it the environment variables with the -e option.
